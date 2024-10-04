@@ -1,0 +1,543 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		290F04452C91710E0085408B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 290F04442C91710E0085408B /* Assets.xcassets */; };
+		294D24182C59CE0100B59E8F /* QLMIDIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294D24172C59CE0100B59E8F /* QLMIDIApp.swift */; };
+		294D241A2C59CE0100B59E8F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294D24192C59CE0100B59E8F /* ContentView.swift */; };
+		294D241C2C59CE0200B59E8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 294D241B2C59CE0200B59E8F /* Assets.xcassets */; };
+		294D241F2C59CE0200B59E8F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 294D241E2C59CE0200B59E8F /* Preview Assets.xcassets */; };
+		294D24292C59CF2600B59E8F /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 294D24282C59CF2600B59E8F /* View.xib */; };
+		29525DD82C5A9F34002B189D /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 294D24322C59D3CE00B59E8F /* Quartz.framework */; };
+		29525DDB2C5A9F34002B189D /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29525DDA2C5A9F34002B189D /* PreviewViewController.swift */; };
+		29525DE02C5A9F34002B189D /* PreviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29525DDE2C5A9F34002B189D /* PreviewViewController.xib */; };
+		29525DE52C5A9F34002B189D /* QLMIDIPreview.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 29525DD72C5A9F34002B189D /* QLMIDIPreview.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		29F9881A2CA39C5C0056E1BE /* QLMIDIProgressSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F988192CA39C550056E1BE /* QLMIDIProgressSlider.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		29525DE32C5A9F34002B189D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 294D240C2C59CE0100B59E8F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 29525DD62C5A9F34002B189D;
+			remoteInfo = QLMIDIExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		294D24442C59D3CE00B59E8F /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				29525DE52C5A9F34002B189D /* QLMIDIPreview.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		290F04442C91710E0085408B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		292C1FBE2CAF79BC00DDEDA8 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		294D24142C59CE0100B59E8F /* QLMIDI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QLMIDI.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		294D24172C59CE0100B59E8F /* QLMIDIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QLMIDIApp.swift; sourceTree = "<group>"; };
+		294D24192C59CE0100B59E8F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		294D241B2C59CE0200B59E8F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		294D241E2C59CE0200B59E8F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		294D24202C59CE0200B59E8F /* QLMIDI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QLMIDI.entitlements; sourceTree = "<group>"; };
+		294D24282C59CF2600B59E8F /* View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
+		294D24322C59D3CE00B59E8F /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
+		29525DD72C5A9F34002B189D /* QLMIDIPreview.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = QLMIDIPreview.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		29525DDA2C5A9F34002B189D /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
+		29525DDF2C5A9F34002B189D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PreviewViewController.xib; sourceTree = "<group>"; };
+		29525DE12C5A9F34002B189D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		29525DE22C5A9F34002B189D /* QLMIDIPreview.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QLMIDIPreview.entitlements; sourceTree = "<group>"; };
+		29CC5E312CAB602A0019D4C3 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		29F988192CA39C550056E1BE /* QLMIDIProgressSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QLMIDIProgressSlider.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		294D24112C59CE0100B59E8F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		29525DD42C5A9F34002B189D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				29525DD82C5A9F34002B189D /* Quartz.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		294D240B2C59CE0100B59E8F = {
+			isa = PBXGroup;
+			children = (
+				292C1FBE2CAF79BC00DDEDA8 /* .gitignore */,
+				29CC5E312CAB602A0019D4C3 /* README.md */,
+				294D24162C59CE0100B59E8F /* QLMIDI */,
+				29525DD92C5A9F34002B189D /* QLMIDIPreview */,
+				294D24312C59D3CE00B59E8F /* Frameworks */,
+				294D24152C59CE0100B59E8F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		294D24152C59CE0100B59E8F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				294D24142C59CE0100B59E8F /* QLMIDI.app */,
+				29525DD72C5A9F34002B189D /* QLMIDIPreview.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		294D24162C59CE0100B59E8F /* QLMIDI */ = {
+			isa = PBXGroup;
+			children = (
+				294D24172C59CE0100B59E8F /* QLMIDIApp.swift */,
+				294D24192C59CE0100B59E8F /* ContentView.swift */,
+				294D24282C59CF2600B59E8F /* View.xib */,
+				294D241B2C59CE0200B59E8F /* Assets.xcassets */,
+				294D24202C59CE0200B59E8F /* QLMIDI.entitlements */,
+				294D241D2C59CE0200B59E8F /* Preview Content */,
+			);
+			path = QLMIDI;
+			sourceTree = "<group>";
+		};
+		294D241D2C59CE0200B59E8F /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				294D241E2C59CE0200B59E8F /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		294D24312C59D3CE00B59E8F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				294D24322C59D3CE00B59E8F /* Quartz.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		29525DD92C5A9F34002B189D /* QLMIDIPreview */ = {
+			isa = PBXGroup;
+			children = (
+				29525DDA2C5A9F34002B189D /* PreviewViewController.swift */,
+				29F988192CA39C550056E1BE /* QLMIDIProgressSlider.swift */,
+				29525DDE2C5A9F34002B189D /* PreviewViewController.xib */,
+				29525DE12C5A9F34002B189D /* Info.plist */,
+				29525DE22C5A9F34002B189D /* QLMIDIPreview.entitlements */,
+				290F04442C91710E0085408B /* Assets.xcassets */,
+			);
+			path = QLMIDIPreview;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		294D24132C59CE0100B59E8F /* QLMIDI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 294D24232C59CE0200B59E8F /* Build configuration list for PBXNativeTarget "QLMIDI" */;
+			buildPhases = (
+				294D24102C59CE0100B59E8F /* Sources */,
+				294D24112C59CE0100B59E8F /* Frameworks */,
+				294D24122C59CE0100B59E8F /* Resources */,
+				294D24442C59D3CE00B59E8F /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				29525DE42C5A9F34002B189D /* PBXTargetDependency */,
+			);
+			name = QLMIDI;
+			productName = QLMIDI;
+			productReference = 294D24142C59CE0100B59E8F /* QLMIDI.app */;
+			productType = "com.apple.product-type.application";
+		};
+		29525DD62C5A9F34002B189D /* QLMIDIPreview */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 29525DE62C5A9F34002B189D /* Build configuration list for PBXNativeTarget "QLMIDIPreview" */;
+			buildPhases = (
+				29525DD32C5A9F34002B189D /* Sources */,
+				29525DD42C5A9F34002B189D /* Frameworks */,
+				29525DD52C5A9F34002B189D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = QLMIDIPreview;
+			productName = QLMIDIExtension;
+			productReference = 29525DD72C5A9F34002B189D /* QLMIDIPreview.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		294D240C2C59CE0100B59E8F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1510;
+				LastUpgradeCheck = 1510;
+				TargetAttributes = {
+					294D24132C59CE0100B59E8F = {
+						CreatedOnToolsVersion = 15.1;
+					};
+					29525DD62C5A9F34002B189D = {
+						CreatedOnToolsVersion = 15.1;
+					};
+				};
+			};
+			buildConfigurationList = 294D240F2C59CE0100B59E8F /* Build configuration list for PBXProject "QLMIDI" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 294D240B2C59CE0100B59E8F;
+			productRefGroup = 294D24152C59CE0100B59E8F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				294D24132C59CE0100B59E8F /* QLMIDI */,
+				29525DD62C5A9F34002B189D /* QLMIDIPreview */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		294D24122C59CE0100B59E8F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				294D241F2C59CE0200B59E8F /* Preview Assets.xcassets in Resources */,
+				294D24292C59CF2600B59E8F /* View.xib in Resources */,
+				294D241C2C59CE0200B59E8F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		29525DD52C5A9F34002B189D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				290F04452C91710E0085408B /* Assets.xcassets in Resources */,
+				29525DE02C5A9F34002B189D /* PreviewViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		294D24102C59CE0100B59E8F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				294D241A2C59CE0100B59E8F /* ContentView.swift in Sources */,
+				294D24182C59CE0100B59E8F /* QLMIDIApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		29525DD32C5A9F34002B189D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				29F9881A2CA39C5C0056E1BE /* QLMIDIProgressSlider.swift in Sources */,
+				29525DDB2C5A9F34002B189D /* PreviewViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		29525DE42C5A9F34002B189D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 29525DD62C5A9F34002B189D /* QLMIDIPreview */;
+			targetProxy = 29525DE32C5A9F34002B189D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		29525DDE2C5A9F34002B189D /* PreviewViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				29525DDF2C5A9F34002B189D /* Base */,
+			);
+			name = PreviewViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		294D24212C59CE0200B59E8F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		294D24222C59CE0200B59E8F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		294D24242C59CE0200B59E8F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CLANG_OPTIMIZATION_PROFILE_FILE = "$(SRCROOT)/OptimizationProfiles/$(PROJECT_NAME).profdata";
+				CODE_SIGN_ENTITLEMENTS = QLMIDI/QLMIDI.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"QLMIDI/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = me.QLMIDI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		294D24252C59CE0200B59E8F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CLANG_OPTIMIZATION_PROFILE_FILE = "$(SRCROOT)/OptimizationProfiles/$(PROJECT_NAME).profdata";
+				CODE_SIGN_ENTITLEMENTS = QLMIDI/QLMIDI.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"QLMIDI/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = me.QLMIDI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		29525DE72C5A9F34002B189D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = QLMIDIPreview/QLMIDIPreview.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = QLMIDIPreview/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = QLMIDIPreview;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = me.QLMIDI.QLMIDIPreview;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		29525DE82C5A9F34002B189D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = QLMIDIPreview/QLMIDIPreview.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = QLMIDIPreview/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = QLMIDIPreview;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = me.QLMIDI.QLMIDIPreview;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		294D240F2C59CE0100B59E8F /* Build configuration list for PBXProject "QLMIDI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				294D24212C59CE0200B59E8F /* Debug */,
+				294D24222C59CE0200B59E8F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		294D24232C59CE0200B59E8F /* Build configuration list for PBXNativeTarget "QLMIDI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				294D24242C59CE0200B59E8F /* Debug */,
+				294D24252C59CE0200B59E8F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		29525DE62C5A9F34002B189D /* Build configuration list for PBXNativeTarget "QLMIDIPreview" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				29525DE72C5A9F34002B189D /* Debug */,
+				29525DE82C5A9F34002B189D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 294D240C2C59CE0100B59E8F /* Project object */;
+}
