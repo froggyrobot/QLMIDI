@@ -25,11 +25,8 @@ class CustomImageCell: NSImageCell {
 class PreviewViewController: NSViewController, QLPreviewingController {
     
     
-    override var nibName: NSNib.Name? {
-            return NSNib.Name("PreviewViewController")
-    }
-    
-    override var preferredContentSize: NSSize { get { return NSMakeSize(565, 266) } set {} } // Make this into a setting? The user could choose between a standard or "mini" player.
+    override var nibName: NSNib.Name? { return NSNib.Name("PreviewViewController") }
+    override var preferredContentSize: NSSize { get { return NSMakeSize(565, 266) } set {} }
     
     var midiPlayer: AVMIDIPlayer!
     var updateTimer: Timer!
@@ -42,10 +39,10 @@ class PreviewViewController: NSViewController, QLPreviewingController {
     var fileURL: URL?
     let skipInterval: Double = 15.00
     var fileName: String?
-    let timeLabelAttributes: [NSAttributedString.Key: Any] = [.foregroundColor: NSColor(named: NSColor.Name("timeLabelColor"))!,
-                                                              .font: NSFont.monospacedDigitSystemFont(ofSize: 12, weight: NSFont.Weight.regular)]
     var durationLabelString: NSAttributedString?
     var timeElapsedLabelString: NSAttributedString?
+    let timeLabelAttributes: [NSAttributedString.Key: Any] = [.foregroundColor: NSColor(named: NSColor.Name("timeLabelColor"))!,
+                                                              .font: NSFont.monospacedDigitSystemFont(ofSize: 12, weight: NSFont.Weight.regular)]
     
     let savePositionOfLastPreview: Bool = true // Make this into a setting. The user can select whether to save the position in the last preview.
     let automaticallyPlayPreview: Bool = true // Make this into a setting.
@@ -195,17 +192,26 @@ class PreviewViewController: NSViewController, QLPreviewingController {
         
         let fileName: String = (fileURL!.lastPathComponent)
         
-        // This code is needed to combine multiple strings with different formatting into one NSTextField.
-        let titleStringAttributes: [NSAttributedString.Key: Any] = [.foregroundColor: NSColor.labelColor, .font: NSFont.systemFont(ofSize: 22, weight: NSFont.Weight.semibold)]
-        let timeStringAttributes: [NSAttributedString.Key: Any] = [.foregroundColor: NSColor.secondaryLabelColor, .font: NSFont.systemFont(ofSize: 16, weight: NSFont.Weight.light)]
-        let durationStringAttributes: [NSAttributedString.Key: Any] = [.foregroundColor: NSColor.secondaryLabelColor, .font: NSFont.systemFont(ofSize: 16, weight: NSFont.Weight.semibold)]
+        let titleAttributes: [NSAttributedString.Key: Any] = [.foregroundColor: NSColor.labelColor,
+                                                                    .font: NSFont.systemFont(ofSize: 22, weight: NSFont.Weight.semibold)]
         
-        let titleString = "\(fileName.dropLast(4))\n"
+        let newlineAttributes: [NSAttributedString.Key: Any] = [.font: NSFont.systemFont(ofSize: 6.72)]
+        
+        let timeAttributes: [NSAttributedString.Key: Any] = [.foregroundColor: NSColor.secondaryLabelColor,
+                                                                   .font: NSFont.systemFont(ofSize: 16, weight: NSFont.Weight.light)]
+        
+        let durationAttributes: [NSAttributedString.Key: Any] = [.foregroundColor: NSColor.secondaryLabelColor,
+                                                                       .font: NSFont.systemFont(ofSize: 16, weight: NSFont.Weight.semibold)]
+        
+        let titleString = "\(fileName.dropLast(4))"
+        let newlineString = "\n\n"
         let timeString = "Time: "
         
-        let title = NSMutableAttributedString(string: titleString, attributes: titleStringAttributes)
-        let time = NSMutableAttributedString(string: timeString, attributes: timeStringAttributes)
-        let duration = NSMutableAttributedString(string: durationString, attributes: durationStringAttributes)
+        let title = NSMutableAttributedString(string: titleString, attributes: titleAttributes)
+        let newline = NSMutableAttributedString(string: newlineString, attributes: newlineAttributes)
+        let time = NSMutableAttributedString(string: timeString, attributes: timeAttributes)
+        let duration = NSMutableAttributedString(string: durationString, attributes: durationAttributes)
+        title.append(newline)
         title.append(time)
         title.append(duration)
         
