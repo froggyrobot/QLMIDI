@@ -5,6 +5,11 @@
 //  This is the main view controller for the QLMIDI preview. The view controller initializes the content
 //  shown in the preview. This file also has references to various elements in PreviewViewController.xib,
 //  declaring their types and containing all of their logic and variables.
+//
+//  QLMIDI presents its preview view in two different states, embedded and popout. The elements of both
+//  are contained in PreviewViewController.xib, and shown or hidden depending on the state of the view.
+//  The view is assumed to be embedded by default when it is initialized in preparePreviewOfFile(), and
+//  changes to the popout state when an observer is notified of a change in view.window.level.
 
 import Cocoa
 import Quartz
@@ -13,9 +18,9 @@ import AVFoundation
 
 // This image cell serves as a box whose width adjusts with the window's width. The value is used in draw().
 class CustomImageCell: NSImageCell {
+    // Overrides draw() to be able to call NSBezierPath() to draw a rectangle with up to date NSRect.width
     override func draw(withFrame cellFrame: NSRect, in controlView: NSView) {
         super.draw(withFrame: cellFrame, in: controlView)
-        // Overriding this draw function to be able to call NSBezierPath to draw with up to date NSRect.width
         let drawRect = NSRect(x: 0, y: 1, width: cellFrame.width, height: 31)
         NSColor(named: NSColor.Name("controlBarColor"))!.setFill()
         NSBezierPath(roundedRect: drawRect, xRadius: 8, yRadius: 8).fill()
@@ -41,8 +46,7 @@ class PreviewViewController: NSViewController, QLPreviewingController {
     var fileName: String?
     var durationLabelString: NSAttributedString?
     var timeElapsedLabelString: NSAttributedString?
-    let timeLabelAttributes: [NSAttributedString.Key: Any] = [.foregroundColor: NSColor(named: NSColor.Name("timeLabelColor"))!,
-                                                              .font: NSFont.monospacedDigitSystemFont(ofSize: 12, weight: NSFont.Weight.regular)]
+    let timeLabelAttributes: [NSAttributedString.Key: Any] = [.foregroundColor: NSColor(named: NSColor.Name("timeLabelColor"))!, .font: NSFont.monospacedDigitSystemFont(ofSize: 12, weight: NSFont.Weight.regular)]
     
     let savePositionOfLastPreview: Bool = true // Make this into a setting. The user can select whether to save the position in the last preview.
     let automaticallyPlayPreview: Bool = true // Make this into a setting.
@@ -110,13 +114,14 @@ class PreviewViewController: NSViewController, QLPreviewingController {
             midiPlayer.currentPosition = midiPlayer.duration
         }
     }
-        
+    
     // Contains the initialization code for the preview view.
     func preparePreviewOfFile(at url: URL, completionHandler handler: @escaping (Error?) -> Void) {
         
         setupEmbeddedView()
         fileURL = url
-
+        
+        // Creates an observer that receives a notification when the window level variable changes. Level is 0 when the window is in the background and 3 when it is in focus, and is never 3 when the view is embedded in Finder.
         windowLevelObservation = observe(\.self.view.window!.level, options: [.old, .new]) { object, change in
             if change.oldValue != nil && change.newValue != nil {
                 if change.newValue!.rawValue == 0 {
@@ -127,6 +132,7 @@ class PreviewViewController: NSViewController, QLPreviewingController {
                     }
                 }
                 if change.newValue!.rawValue == 3 && self.playerIsPlaying == true {
+                    // Because the window level always starts at 0 and changes to 3 when a popout window is created, call setupPopoutView() on the first change.
                     if self.viewHasSetup == false {
                         self.setupPopoutView()
                         self.viewHasSetup = true
@@ -137,10 +143,11 @@ class PreviewViewController: NSViewController, QLPreviewingController {
             }
         }
         
-        // Call the completion handler to signal that the preview is available
+        // Call the completion handler to signal that the preview is available.
         handler(nil)
     }
     
+    // Hides popout view elements.
     func setupEmbeddedView() {
         playButton.isHidden = true
         skipForwardButton.isHidden = true
@@ -156,18 +163,25 @@ class PreviewViewController: NSViewController, QLPreviewingController {
         unembeddedImageLeadingConstraint.isActive = false
     }
     
+    // Unhides popout view elements and further initializes the view.
     func setupPopoutView() {
-        
+        // Initializes the MIDI player.
         do {
             midiPlayer = try AVMIDIPlayer.init(contentsOf: fileURL!, soundBankURL: nil)
         } catch {
             NSLog ("Failed to initialize midi player")
         }
         
+        // Initializes a repeating timer that calls updateDisplay().
         updateTimer = Timer.scheduledTimer(timeInterval: 0.0167, target: self, selector: #selector(self.updateDisplay), userInfo: nil, repeats: true)
         
-        embeddedImage.isHidden = true
+        // Starts playing
+        midiPlayer.play()
+        self.playButton.state=NSControl.StateValue.on
+        progressSliderCell.maxValue = Double(midiPlayer.duration)
         
+        // Hides the image shown by the embedded view and unhides popout view elements
+        embeddedImage.isHidden = true
         playButton.isHidden = false
         skipForwardButton.isHidden = false
         skipBackButton.isHidden = false
@@ -177,36 +191,23 @@ class PreviewViewController: NSViewController, QLPreviewingController {
         barRect.isHidden = false
         viewImage.isHidden = false
         titleLabel.isHidden = false
-        
         titleTrailingConstraint.isActive = true
         unembeddedImageLeadingConstraint.isActive = true
         
-        
-        midiPlayer.play()
-        self.playButton.state=NSControl.StateValue.on
-        progressSliderCell.maxValue = Double(midiPlayer.duration)
-        
+        // Sets up the label containing the file's name and duration.
         let durationString: String = getTimeString(timeValue: midiPlayer.duration)
         durationLabelString = NSAttributedString(string: durationString, attributes: timeLabelAttributes)
         durationLabel.attributedStringValue = durationLabelString!
         
-        let fileName: String = (fileURL!.lastPathComponent)
-        
-        let titleAttributes: [NSAttributedString.Key: Any] = [.foregroundColor: NSColor.labelColor,
-                                                                    .font: NSFont.systemFont(ofSize: 22, weight: NSFont.Weight.semibold)]
-        
+        let titleAttributes: [NSAttributedString.Key: Any] = [.foregroundColor: NSColor.labelColor, .font: NSFont.systemFont(ofSize: 22, weight: NSFont.Weight.semibold)]
         let newlineAttributes: [NSAttributedString.Key: Any] = [.font: NSFont.systemFont(ofSize: 6.72)]
+        let timeAttributes: [NSAttributedString.Key: Any] = [.foregroundColor: NSColor.secondaryLabelColor, .font: NSFont.systemFont(ofSize: 16, weight: NSFont.Weight.light)]
+        let durationAttributes: [NSAttributedString.Key: Any] = [.foregroundColor: NSColor.secondaryLabelColor, .font: NSFont.systemFont(ofSize: 16, weight: NSFont.Weight.semibold)]
         
-        let timeAttributes: [NSAttributedString.Key: Any] = [.foregroundColor: NSColor.secondaryLabelColor,
-                                                                   .font: NSFont.systemFont(ofSize: 16, weight: NSFont.Weight.light)]
-        
-        let durationAttributes: [NSAttributedString.Key: Any] = [.foregroundColor: NSColor.secondaryLabelColor,
-                                                                       .font: NSFont.systemFont(ofSize: 16, weight: NSFont.Weight.semibold)]
-        
+        let fileName: String = (fileURL!.lastPathComponent)
         let titleString = "\(fileName.dropLast(4))"
         let newlineString = "\n\n"
         let timeString = "Time: "
-        
         let title = NSMutableAttributedString(string: titleString, attributes: titleAttributes)
         let newline = NSMutableAttributedString(string: newlineString, attributes: newlineAttributes)
         let time = NSMutableAttributedString(string: timeString, attributes: timeAttributes)
@@ -214,13 +215,11 @@ class PreviewViewController: NSViewController, QLPreviewingController {
         title.append(newline)
         title.append(time)
         title.append(duration)
-        
         titleLabel.attributedStringValue = title
     }
     
-    // Deinitializes the player and timer to free resources.
+    // Deinitializes the timer to free resources.
     override func viewWillDisappear() {
-        midiPlayer = nil // Attempting to free memory, but this doesn't work.
         if updateTimer != nil { updateTimer.invalidate() }
         super.viewWillDisappear()
     }
@@ -322,7 +321,6 @@ class PreviewViewController: NSViewController, QLPreviewingController {
             timeElapsedLabel.animator().setFrameOrigin(NSMakePoint(1, 1))
             skipForwardButton.animator().setFrameOrigin(NSMakePoint(1, 1))
             playButton.animator().setFrameOrigin(NSMakePoint(1, 1))
-            // These points are kind of arbitrary, the constraints keep everything in place and the animation seems to be working
         })
     }
     
