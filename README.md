@@ -2,6 +2,10 @@
 
 QLMIDI is a Quick Look extension program for macOS. Its purpose is to extend the Quick Look function of macOS to generate audio previews of MIDI files *that automatically play in the Quick Look pop up window* (the window that pops up when you press the space bar while a file is selected in Finder). This is useful for anyone with large libraries of MIDI files on their computer.
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/5842c538-c4f7-4c19-b4dc-360a98b33520" width="80%" height="80%"/>
+</p>
+
 QLMIDI allows you to audition MIDI files in finder, without opening an external application, with as little friction as possible. This works in exactly the same way as Apple's own native audio Quick Look previews.
 
 This extension was designed to be as light weight and simple as possible- I wanted it to feel as though macOS supports MIDI playback in Quick Look natively (it did so prior to OSX 10.9). It uses AVMIDIPlayer, a MIDI player that comes included with AVfoundation and macOS, so QLMIDI doesn't have any external dependencies. The design of the UI should fit in with other audio Quick Look previews shown in finder.
