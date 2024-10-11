@@ -12,7 +12,7 @@ This extension was designed to be as lightweight and simple as possible- I wante
 
 ## Application
 
-For now, the QLMIDI Application is just a stub. It's necessary because it is the only way to install an extension of this kind in any macOS version higher than 10.15. In the future, the application will be expanded into a small preferences panel with a few options for the user to control. This code is kept in the "QLMIDI" folder.
+For now, the QLMIDI application is just a placeholder. It's necessary because it is the only way to install an extension of this kind in any macOS version higher than 10.15. In the future, the application will be expanded into a small preferences panel with a few options for the user to control. This code is kept in the "QLMIDI" folder.
 
 ## Extension
 
