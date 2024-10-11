@@ -1,9 +1,7 @@
+//  QLMIDIApp
 //
-//  QLMIDIApp.swift
-//  QLMIDI
-//
-//  Created by froggyrobot on 7/30/24.
-//
+//  This is the app that contains the Quick Look extension. It's just a placeholder for now, but in the
+//  future it will be expanded into a preferences panel.
 
 import SwiftUI
 
@@ -16,7 +14,6 @@ struct QLMIDIApp: App {
                 minWidth: 300, maxWidth: 300,
                 minHeight: 400, maxHeight: 400)
         }
-//        .defaultSize(width: 900, height: 900)
         .windowResizability(.contentSize)
     }
 }

@@ -1,9 +1,6 @@
+//  ContentView
 //
-//  ContentView.swift
-//  QLMIDI
-//
-//  Created by froggyrobot on 7/30/24.
-//
+//  Content view for the QLMIDI app.
 
 import SwiftUI
 
