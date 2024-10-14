@@ -20,4 +20,8 @@ This is the main function of QLMIDI. This code is kept in the "QLMIDIExtension" 
 
 ## Installation
 
-Add installation instructions here.
+1. Double click on 'QLMIDI'
+2. On the pop-up window, click 'Ok'
+3. Go to System Preferences > Privacy & Security > Security settings and under '"QLMIDI.app" was blocked from use because it is not from an identified developer' click 'Open anyway'
+4. In the pop up window, enter your password
+5. Click 'Open'
