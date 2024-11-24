@@ -16,7 +16,7 @@ For now, the QLMIDI application is just a placeholder. It's necessary because it
 
 ## Extension
 
-This is the main function of QLMIDI. This code is kept in the "QLMIDIExtension" folder. It contains the code that initializes the preview and its content, the various elements of the UI, and all of their logic and variables. Extensions of classes for UI elements used by QLMIDI are also kept in this folder.
+This is the main function of QLMIDI. This code is kept in the "QLMIDIPreview" folder. It contains the code that initializes the preview and its content, the various elements of the UI, and all of their logic and variables. Extensions of classes for UI elements used by QLMIDI are also kept in this folder.
 
 ## Installation
 
